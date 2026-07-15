@@ -1,0 +1,242 @@
+
+.contact-section{
+    padding:140px 0 100px;
+    background:#070b11;
+    min-height:100vh;
+}
+
+.contact-wrapper{
+    display:grid;
+    grid-template-columns:320px 1fr;
+    gap:50px;
+    margin-top:70px;
+}
+
+
+.section-header{
+    text-align:center;
+    margin-bottom:50px;
+}
+
+.section-subtitle{
+    color:#00ff88;
+    font-weight:700;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.section-title{
+    color:#fff;
+    font-size:4rem;
+    margin:20px 0;
+}
+
+.section-title span{
+    color:#00ff88;
+}
+
+.section-header p{
+    color:#a8b0c0;
+    max-width:700px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+
+.contact-info{
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.info-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(20px);
+    transition:.3s;
+}
+
+.info-card:hover{
+    transform:translateY(-5px);
+    border-color:#00ff88;
+    box-shadow:0 0 30px rgba(0,255,136,.15);
+}
+
+.info-card i{
+    width:60px;
+    height:60px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:50%;
+    background:#00ff88;
+    color:#070b11;
+    font-size:1.3rem;
+}
+
+.info-card h3{
+    color:#fff;
+    margin-bottom:8px;
+}
+
+.info-card p{
+    color:#a8b0c0;
+}
+
+.order-form{
+    padding:40px;
+    border-radius:30px;
+    background:rgba(255,255,255,.03);
+    border:1px solid rgba(255,255,255,.06);
+    backdrop-filter:blur(25px);
+}
+
+.order-form h2{
+    color:#fff;
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.order-form form{
+    display:flex;
+    flex-direction:column;
+    gap:22px;
+}
+
+.input-group{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea{
+    width:100%;
+    padding:18px 20px;
+    border:none;
+    outline:none;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#fff;
+    font-size:.95rem;
+    transition:.3s;
+}
+
+.order-form textarea{
+    resize:none;
+    min-height:180px;
+}
+
+.order-form input:focus,
+.order-form select:focus,
+.order-form textarea:focus{
+    border-color:#00ff88;
+    box-shadow:0 0 20px rgba(0,255,136,.15);
+}
+
+.order-form select option{
+    background:#111;
+}
+
+.order-form button{
+    padding:18px;
+    border:none;
+    border-radius:15px;
+    cursor:pointer;
+    font-size:1rem;
+    font-weight:700;
+    color:#070b11;
+    background:linear-gradient(
+        135deg,
+        #00ff88,
+        #00cc6f
+    );
+    transition:.3s;
+}
+
+.order-form button:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(0,255,136,.3);
+}
+
+@media(max-width:992px){
+
+    .contact-wrapper{
+        grid-template-columns:1fr;
+    }
+
+    .input-group{
+        grid-template-columns:1fr;
+    }
+
+    .order-form{
+        padding:25px;
+    }
+
+    .section-title{
+        font-size:2.5rem;
+    }
+}
+.input-group{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    width:100%;
+}
+
+.order-form input,
+.order-form select,
+.order-form textarea{
+    width:100%;
+    padding:18px 20px;
+    border-radius:15px;
+    background:rgba(255,255,255,.04);
+    border:1px solid rgba(255,255,255,.08);
+    color:#fff;
+    font-size:.95rem;
+    outline:none;
+    transition:.3s;
+    box-sizing:border-box;
+}
+
+.order-form textarea{
+    min-height:180px;
+    resize:none;
+}
+
+@media(max-width:768px){
+    .input-group{
+        grid-template-columns:1fr;
+    }
+}
+.success-message{
+
+    background:#16a34a;
+    color:white;
+    padding:15px 20px;
+    border-radius:12px;
+    margin-bottom:20px;
+    text-align:center;
+    font-weight:600;
+    animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}

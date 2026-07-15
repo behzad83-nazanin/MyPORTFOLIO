@@ -1,0 +1,184 @@
+{% extends 'core/base.html' %}
+
+{% block title %}
+Contact | Behzad
+{% endblock %}
+
+{% block content %}
+
+<section class="contact-section">
+
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-subtitle">
+                CONTACT
+            </span>
+
+            <h1 class="section-title">
+                Let's <span>Work Together</span>
+            </h1>
+
+            <p>
+                Have an idea? Need a website, dashboard or full-stack project?
+                Send me your project details.
+            </p>
+
+        </div>
+
+        <div class="contact-wrapper">
+
+            <div class="contact-info">
+
+                <div class="info-card">
+                    <i class="fa-solid fa-envelope"></i>
+                    <div>
+                        <h3>Email</h3>
+                        <p>bhzadnbaty76@gmail.com</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fa-solid fa-phone"></i>
+                    <div>
+                        <h3>Phone</h3>
+                        <p>+98 9056349513</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div>
+                        <h3>Location</h3>
+                        <p>Iran,Alborz</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="order-form" id="project-request">
+
+                {% if success %}
+
+                <div class="success-message" id="successMessage">
+
+                    <i class="fa-solid fa-circle-check"></i>
+                    Your project request has been sent successfully!
+
+                </div>
+
+                {% endif %}
+
+                <form method="POST" id="contactForm">
+
+                    {% csrf_token %}
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Your Name"
+                            required>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Your Email"
+                            required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Phone"
+                            required>
+
+                        <input
+                            type="text"
+                            name="project_type"
+                            placeholder="Project Type"
+                            required>
+
+                    </div>
+
+                    <div class="input-group">
+
+                        <select name="budget" required>
+
+                            <option value="" selected disabled>
+                                Budget Range
+                            </option>
+
+                            <option>$100 - $500</option>
+                            <option>$500 - $1000</option>
+                            <option>$1000 - $3000</option>
+                            <option>$3000+</option>
+
+                        </select>
+
+                        <select name="timeline" required>
+
+                            <option value="" selected disabled>
+                                Timeline
+                            </option>
+
+                            <option>1 Week</option>
+                            <option>2 Weeks</option>
+                            <option>1 Month</option>
+                            <option>2+ Months</option>
+
+                        </select>
+
+                    </div>
+
+                    <textarea
+                        name="description"
+                        rows="7"
+                        placeholder="Describe your project..." required></textarea>
+
+                    <button type="submit">
+
+                        Send Project Request
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<script>
+    window.onload = function() {
+        var successMsg = document.getElementById('successMessage');
+        if (successMsg) {
+            var form = document.getElementById('contactForm');
+
+            if (form) {
+                form.reset();
+
+
+                var selects = form.querySelectorAll('select');
+                for (var i = 0; i < selects.length; i++) {
+                    selects[i].selectedIndex = 0;
+                }
+            }
+
+
+            setTimeout(function() {
+                successMsg.style.display = 'none';
+            }, 3000);
+        }
+    };
+</script>
+
+{% endblock %}

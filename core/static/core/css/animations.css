@@ -1,0 +1,121 @@
+
+@keyframes fadeUp{
+
+0%{
+opacity:0;
+transform:translateY(60px);
+}
+
+100%{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+
+@keyframes fadeLeft{
+
+0%{
+opacity:0;
+transform:translateX(-60px);
+}
+
+100%{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+@keyframes fadeRight{
+
+0%{
+opacity:0;
+transform:translateX(60px);
+}
+
+100%{
+opacity:1;
+transform:translateX(0);
+}
+
+}
+
+@keyframes floating{
+
+0%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-12px);
+}
+
+100%{
+transform:translateY(0);
+}
+
+}
+
+
+@keyframes glow{
+
+0%{
+opacity:.6;
+transform:scale(1);
+}
+
+50%{
+opacity:1;
+transform:scale(1.08);
+}
+
+100%{
+opacity:.6;
+transform:scale(1);
+}
+
+}
+
+
+
+.hero-content{
+    animation:fadeLeft .9s ease;
+}
+
+.hero-image{
+    animation:fadeRight 1s ease;
+}
+
+.hero-glow{
+    animation:glow 4s ease-in-out infinite;
+}
+
+.profile-image{
+    animation:floating 6s ease-in-out infinite;
+}
+
+.hero-badge{
+    animation:fadeUp .7s ease;
+}
+
+.hero-title{
+    animation:fadeUp .9s ease;
+}
+
+.hero-description{
+    animation:fadeUp 1.1s ease;
+}
+
+.hero-buttons{
+    animation:fadeUp 1.3s ease;
+}
+
+.hero-stats{
+    animation:fadeUp 1.5s ease;
+}
+
+.tech-stack{
+    animation:fadeUp 1.7s ease;
+}

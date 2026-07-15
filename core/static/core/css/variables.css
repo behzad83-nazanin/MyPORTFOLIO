@@ -1,0 +1,92 @@
+ /*==========================================
+   DESIGN SYSTEM
+   Author : Behzad Portfolio
+==========================================*/
+
+:root{
+
+    --primary-color:#00ff88;
+    --primary-hover:#00e676;
+
+    --secondary-color:#7c5cff;
+    --secondary-hover:#9276ff;
+
+    --background:#05070b;
+    --surface:#0d1117;
+    --surface-light:#171d27;
+
+    --text:#ffffff;
+    --text-light:#c7ced8;
+    --text-muted:#8b94a7;
+
+    --border:rgba(255,255,255,.08);
+
+    --success:#00ff88;
+    --danger:#ff5d73;
+    --warning:#ffc857;
+
+    /* ===============================
+       SHADOWS
+    =============================== */
+
+    --shadow-sm:
+        0 8px 24px rgba(0,0,0,.18);
+
+    --shadow-md:
+        0 20px 45px rgba(0,0,0,.28);
+
+    --shadow-lg:
+        0 40px 90px rgba(0,0,0,.42);
+
+    /* ===============================
+       RADIUS
+    =============================== */
+
+    --radius-sm:12px;
+    --radius-md:18px;
+    --radius-lg:28px;
+    --radius-xl:40px;
+    --radius-full:999px;
+
+    /* ===============================
+       CONTAINER
+    =============================== */
+
+    --container:1320px;
+
+    /* ===============================
+       HEADER
+    =============================== */
+
+    --header-height:90px;
+
+    /* ===============================
+       TRANSITIONS
+    =============================== */
+
+    --transition-fast:.25s ease;
+
+    --transition:.35s ease;
+
+    --transition-slow:.55s ease;
+
+    /* ===============================
+       TYPOGRAPHY
+    =============================== */
+
+    --fs-xs:.82rem;
+    --fs-sm:.92rem;
+    --fs-md:1rem;
+    --fs-lg:1.15rem;
+    --fs-xl:1.35rem;
+
+    --title:
+        clamp(3rem,5vw,5rem);
+
+    --subtitle:
+        clamp(2rem,3vw,3rem);
+
+    --section-title:
+        clamp(2.2rem,3vw,3.5rem);
+
+}

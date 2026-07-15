@@ -1,0 +1,14 @@
+@import url("variables.css");
+@import url("base.css");
+@import url("navbar.css");
+@import url("hero.css");
+@import url("hero-responsive.css");
+@import url("animations.css");
+@import url("about.css");
+@import url("about-responsive.css");
+@import url("projects.css");
+@import url("projects-responsive.css");
+@import url("projects-page.css");
+@import url("contact.css");
+@import url("footer.css");
+

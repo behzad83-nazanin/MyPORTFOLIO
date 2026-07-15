@@ -1,0 +1,204 @@
+
+*,
+*::before,
+*::after{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+    scroll-padding-top:var(--header-height);
+
+}
+
+body{
+
+    font-family:'Plus Jakarta Sans',sans-serif;
+    background:var(--background);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+    min-height:100vh;
+    text-rendering:optimizeLegibility;
+    -webkit-font-smoothing:antialiased;
+
+}
+
+::selection{
+
+    background:var(--primary-color);
+    color:#05070b;
+
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6{
+
+    font-weight:700;
+    line-height:1.15;
+
+}
+
+p{
+
+    color:var(--text-light);
+
+}
+
+a{
+
+    text-decoration:none;
+    color:inherit;
+
+}
+
+ul{
+
+    list-style:none;
+
+}
+
+img{
+
+    display:block;
+    max-width:100%;
+    height:auto;
+
+}
+
+button{
+
+    border:none;
+    outline:none;
+    cursor:pointer;
+    background:none;
+    font-family:inherit;
+
+}
+
+input,
+textarea{
+
+    border:none;
+    outline:none;
+    background:none;
+    font-family:inherit;
+
+}
+
+
+.container{
+
+    width:min(92%,var(--container));
+    margin-inline:auto;
+
+}
+
+main{
+
+    overflow:hidden;
+
+}
+
+
+section{
+
+    position:relative;
+
+}
+
+
+.primary-btn,
+.secondary-btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-weight:700;
+    transition:var(--transition);
+
+}
+
+.primary-btn:hover,
+.secondary-btn:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+body::before{
+
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-2;
+    pointer-events:none;
+    background:
+    radial-gradient(circle at 18% 18%,
+    rgba(0,255,136,.08),
+    transparent 28%),
+    radial-gradient(circle at 82% 35%,
+    rgba(124,92,255,.08),
+    transparent 30%);
+
+}
+
+body::after{
+
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    pointer-events:none;
+    opacity:.22;
+    background-image:
+    linear-gradient(rgba(255,255,255,.02) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.02) 1px,transparent 1px);
+    background-size:72px 72px;
+
+}
+
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#090b10;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--primary-color);
+    border-radius:999px;
+
+}
+
+
+.text-primary{
+
+  color:var(--primary-color);
+
+}
+
+.text-center{
+    text-align:center;
+}
+.hidden{
+    display:none;
+}

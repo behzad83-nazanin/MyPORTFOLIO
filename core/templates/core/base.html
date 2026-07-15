@@ -1,0 +1,181 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>
+    {% block title %}Behzad | Full Stack Developer{% endblock %}
+</title>
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<!-- CSS -->
+<link rel="stylesheet"
+      href="{% static 'core/css/style.css' %}">
+
+
+
+</head>
+
+<body>
+
+<header class="header">
+
+<div class="container">
+
+    <a href="{% url 'home' %}" class="logo">
+        Σ<span>.</span>
+    </a>
+
+    <nav class="navbar">
+
+        <ul>
+
+            <li>
+                <a href="{% url 'home' %}"
+                   class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'projects' %}"
+                   class="{% if request.resolver_match.url_name == 'projects' %}active{% endif %}">
+                    Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'projects_page' %}"
+                   class="{% if request.resolver_match.url_name == 'projects_page' %}active{% endif %}">
+                    All Projects
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'about' %}"
+                   class="{% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                    About Me
+                </a>
+            </li>
+
+            <li>
+                <a href="{% url 'contact' %}"
+                   class="{% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                    Contact
+                </a>
+            </li>
+
+        </ul>
+
+    </nav>
+    <a href="{% url 'contact' %}#project-request"
+   class="talk-btn">
+
+    Let's Talk
+    <i class="fa-solid fa-arrow-right"></i>
+
+    </a>
+
+</div>
+
+</header>
+
+<main>
+
+
+{% block content %}
+{% endblock %}
+
+</main>
+
+{% include 'core/components/footer.html' %}
+
+<script src="{% static 'core/js/main.js' %}"></script>
+
+
+<script>
+
+document.addEventListener(
+    'DOMContentLoaded',
+    function(){
+
+        const form =
+            document.getElementById(
+                'newsletter-form'
+            );
+
+        if(!form) return;
+
+        form.addEventListener(
+            'submit',
+            async function(e){
+
+                e.preventDefault();
+
+                const response =
+                    await fetch(
+                        form.action,
+                        {
+                            method:'POST',
+                            body:new FormData(form)
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                const msg =
+                    document.getElementById(
+                        'newsletter-message'
+                    );
+
+                if(data.success){
+
+                    msg.innerHTML =
+                        data.message;
+
+                    msg.classList.add(
+                        'show'
+                    );
+
+                    form.reset();
+
+                    setTimeout(
+                        function(){
+
+                            msg.classList.remove(
+                                'show'
+                            );
+
+                            msg.innerHTML='';
+
+                        },
+                        3000
+                    );
+                }
+            }
+        );
+    }
+);
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,103 @@
+{% load static %}
+{% if newsletter_success %}
+
+<div class="success-message">
+
+    ✅ Thanks for subscribing!
+
+</div>
+
+{% endif %}
+{% if newsletter_success %}
+
+<div class="success-message">
+
+    Thanks for subscribing!
+
+</div>
+
+{% endif %}
+
+<footer class="footer">
+
+    <div class="footer-top-line"></div>
+
+    <div class="footer-wrapper">
+
+        <div class="footer-brand">
+            <div class="footer-logo">
+                BEHZAD <span>DEV</span>
+            </div>
+            <div class="footer-job">FULLSTACK DEVELOPER</div>
+            <div class="footer-social">
+                <a href= "https://github.com/behzad83-nazanin"><i class="fab fa-github"></i></a>
+                <a href="https://t.me/Bodybuilder83"><i class="fab fa-telegram-plane"></i></a>
+                <a href="https://instagram.com/behzad_nabati2064"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <ul class="footer-list">
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'about' %}">About Me</a></li>
+                <li><a href="{% url 'projects' %}">Projects</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>My Services</h3>
+            <ul class="footer-list">
+                <li>UI/UX Design</li>
+                <li>Web Development</li>
+                <li>Responsive Design</li>
+                <li>Speed Optimization</li>
+                <li>SEO</li>
+            </ul>
+        </div>
+
+<div class="footer-col footer-newsletter">
+
+    <h3>Stay Connected</h3>
+
+    <p>
+        If you have a project in mind or want to collaborate,
+        I'd love to hear from you.
+    </p>
+
+    <form
+        id="newsletter-form"
+        action="{% url 'newsletter' %}"
+        method="POST"
+        class="footer-subscribe">
+
+        {% csrf_token %}
+
+        <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder="Enter your email"
+            required>
+
+        <button
+            id="newsletter-btn"
+            type="submit"
+            class="footer-send">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </form>
+
+    <div id="newsletter-message"></div>
+
+</div>
+
+    <div class="footer-bottom">
+        &copy; 2026 <span>Behzad Dev</span>. All Rights Reserved.
+    </div>
+
+</footer>

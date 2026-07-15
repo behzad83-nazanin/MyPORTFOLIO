@@ -1,0 +1,316 @@
+{% extends 'core/base.html' %}
+{% load static %}
+
+{% block content %}
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+<link rel="stylesheet" href="{% static 'core/css/style.css' %}">
+
+<section class="projects-hero">
+    <div class="container">
+        <span class="hero-subtitle">
+            <i class="fas fa-code"></i> MY PORTFOLIO
+        </span>
+        <h1>
+            All <span>Projects</span>
+        </h1>
+        <p>
+            A collection of web applications, dashboards and modern web experiences
+            built with Django, Python and modern frontend technologies.
+        </p>
+    </div>
+</section>
+<section class="all-projects">
+    <div class="container">
+<div class="projects-grid">
+
+    {% for project in projects %}
+
+    <article class="project-card">
+
+        <div class="project-image">
+
+            {% if project.image %}
+            <img
+                src="{{ project.image.url }}"
+                alt="{{ project.title }}"
+                loading="lazy"
+            >
+            {% endif %}
+
+            <div class="project-overlay">
+
+                <span class="project-category">
+
+                    {% if project.category == 'E-Commerce' %}
+                        <i class="fas fa-store"></i>
+                    {% elif project.category == 'CMS' %}
+                        <i class="fas fa-film"></i>
+                    {% elif project.category == 'Dashboard' %}
+                        <i class="fas fa-chart-line"></i>
+                    {% elif project.category == 'Finance' %}
+                        <i class="fas fa-wallet"></i>
+                    {% elif project.category == 'Productivity' %}
+                        <i class="fas fa-tasks"></i>
+                    {% else %}
+                        <i class="fas fa-code"></i>
+                    {% endif %}
+
+                    {{ project.category }}
+
+                </span>
+
+                <h3>
+                    {{ project.title }}
+                </h3>
+
+                <p>
+                    {{ project.short_description }}
+                </p>
+
+                <div class="project-buttons">
+
+                    {% if project.live_url %}
+                    <a
+                        href="{{ project.live_url }}"
+                        class="btn-demo"
+                        target="_blank"
+                    >
+                        <i class="fas fa-external-link-alt"></i>
+                        Live Demo
+                    </a>
+                    {% endif %}
+
+                    {% if project.github_url %}
+                    <a
+                        href="{{ project.github_url }}"
+                        class="btn-github"
+                        target="_blank"
+                    >
+                        <i class="fab fa-github"></i>
+                        GitHub
+                    </a>
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </article>
+
+    {% empty %}
+
+    <div class="empty-projects">
+
+        <h2>No Projects Found</h2>
+        <p>Add projects from Django Admin.</p>
+
+    </div>
+
+    {% endfor %}
+
+</div>
+    </div>
+</section>
+
+<section class="skills-showcase">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-subtitle">
+                <i class="fas fa-code"></i> TECH STACK
+            </span>
+            <h2 class="section-title">
+                Technologies I <span>Use</span>
+            </h2>
+            <p class="section-description">
+                Hover over each technology to learn more about how I use it
+                in my development workflow.
+            </p>
+        </div>
+
+        <div class="skills-grid">
+            <div class="skill-card" data-tooltip="Python">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/python.png' %}" alt="Python" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Python</h4>
+                    <p>Backend development, data processing, automation scripts, and API development with Django & Flask.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="Django">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/django.png' %}" alt="Django" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Django</h4>
+                    <p>Full-stack web development, REST APIs, authentication, ORM, and admin panel customization.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+
+
+            <div class="skill-card" data-tooltip="HTML5">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/html.png' %}" alt="HTML5" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>HTML5</h4>
+                    <p>Semantic markup, accessibility, SEO optimization, and modern web structure.</p>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="CSS3">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/css.png' %}" alt="CSS3" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>CSS3</h4>
+                    <p>Responsive design, animations, flexbox, grid, custom properties, and modern UI/UX.</p>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
+            <div class="skill-card" data-tooltip="JavaScript">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/javascript.png' %}" alt="JavaScript" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>JavaScript</h4>
+                    <p>Interactive UIs, DOM manipulation, ES6+, async/await, and frontend frameworks.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+            <div class="skill-card" data-tooltip="Node.js">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/nodejs.png' %}" alt="Node.js" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Node.js</h4>
+                    <p>Server-side JavaScript, building REST APIs, real-time applications, and microservices.</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="MongoDB">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/Mongodb.png' %}" alt="MongoDB" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>MongoDB</h4>
+                    <p>NoSQL database management, data modeling, aggregation pipelines, and Atlas deployment.</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="Git">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/git.png' %}" alt="Git" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Git</h4>
+                    <p>Version control, branching strategies, collaboration workflows, and code review.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="GitHub">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/github.png' %}" alt="GitHub" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>GitHub</h4>
+                    <p>Project hosting, CI/CD with GitHub Actions, open-source contributions, and team collaboration.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+
+
+            <div class="skill-card" data-tooltip="Postman">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/postman.png' %}" alt="Postman" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Postman</h4>
+                    <p>API testing, request/response debugging, automated testing, and API documentation.</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
+
+
+            <div class="skill-card" data-tooltip="PyCharm">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/pycharm.png' %}" alt="PyCharm" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>PyCharm</h4>
+                    <p>Python IDE for development, debugging, code analysis, and Django project management.</p>
+                    <span class="skill-level">Advanced</span>
+                </div>
+            </div>
+
+            <div class="skill-card" data-tooltip="VS Code">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/VsCode.png' %}" alt="VS Code" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>VS Code</h4>
+                    <p>Lightweight code editor with extensions, debugging, Git integration, and live share.</p>
+                    <span class="skill-level">Expert</span>
+                </div>
+            </div>
+            <div class="skill-card" data-tooltip="npm">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/npm.png' %}" alt="npm" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>npm</h4>
+                    <p>Package management, dependency installation, script running, and project scaffolding.</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
+
+            <!-- Regex -->
+            <div class="skill-card" data-tooltip="Regex">
+                <div class="skill-icon">
+                    <img src="{% static 'core/images/pictures/Regex.png' %}" alt="Regex" loading="lazy">
+                </div>
+                <div class="skill-tooltip">
+                    <h4>Regular Expressions</h4>
+                    <p>Pattern matching, text processing, form validation, and data extraction from strings.</p>
+                    <span class="skill-level">Intermediate</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="projects-cta">
+    <div class="container">
+        <h2>
+            Interested in Working Together?
+        </h2>
+        <p>
+            Let's build something amazing. I'm always open to new opportunities.
+        </p>
+        <a href="{% url 'contact' %}" class="cta-btn">
+            <i class="fas fa-paper-plane"></i> Contact Me
+            <i class="fas fa-arrow-right"></i>
+        </a>
+    </div>
+</section>
+
+{% endblock %}
+{% block extra_js %}
+<script src="{% static 'core/js/projects-page.js' %}"></script>
+{% endblock %}
