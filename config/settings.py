@@ -13,7 +13,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ==========================================
 SECRET_KEY = 'django-insecure-b_an&zb_$zmn)&#9_c4!70z$&(gl!3!_^zt8hulh+xwa9)2v^u'
 DEBUG = True
-ALLOWED_HOSTS = []  # برای تولید: ['yourdomain.com', 'www.yourdomain.com']
+ALLOWED_HOSTS = ['*']
 
 # ==========================================
 # اپلیکیشن‌های نصب شده
@@ -36,6 +36,7 @@ INSTALLED_APPS = [
 # ==========================================
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',  # برای تغییر زبان
     'django.middleware.common.CommonMiddleware',
@@ -117,7 +118,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'  # برای جمع‌آوری در تول
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'  # برای فایل‌های آپلودی
-
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # ==========================================
 # تنظیمات پیش‌فرض
 # ==========================================
