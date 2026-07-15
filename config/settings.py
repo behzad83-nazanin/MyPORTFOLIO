@@ -13,8 +13,11 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ==========================================
 SECRET_KEY = 'django-insecure-b_an&zb_$zmn)&#9_c4!70z$&(gl!3!_^zt8hulh+xwa9)2v^u'
 DEBUG = True
-ALLOWED_HOSTS = ['*']
-
+ALLOWED_HOSTS = [
+    "myportfolio-akuz.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 # ==========================================
 # اپلیکیشن‌های نصب شده
 # ==========================================
